@@ -1,0 +1,69 @@
+﻿<Window x:Class="HotelService.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelService"
+        mc:Ignorable="d"
+        Title="Hotel Service" MinHeight="800" MinWidth="1200" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF04122C">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Background="#FF2A2844" Grid.RowSpan="2">
+                <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel Margin="20">
+                        <TextBlock Text="Hotel Chain Service" Foreground="#FF91DFEC" FontFamily="Humnst777 Blk BT" FontSize="25"/>
+                    </StackPanel>
+                </Label>
+                <Button Style="{DynamicResource PanelButtonTemplate}" Click="VisitorRegister">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <TextBlock Text="Зарегестрировать посетителя" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadApartments">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Список номеров отеля" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadVisitors">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Список актуальных поситителей" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadServices">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Список сервисов отеля" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadReviews">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Отзывы" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        <ComboBox Grid.Column="1"
+                  ItemsSource="{Binding Hotels}"
+                  DisplayMemberPath="Name"
+                  Grid.ColumnSpan="1"
+                  Margin="10" 
+                  IsEditable="True" 
+                  IsReadOnly="True" 
+                  Text="Выбрать отель"/>
+        <Button Style="{DynamicResource DefaultButtonTemplate}" Grid.Column="3" 
+                Content="Менеджмент"    
+                Margin="0, 15, 20, 15"
+                FontSize="18"
+                Click="OpenManagmentWindow"/>
+            <Frame
+            NavigationUIVisibility="Hidden"
+            x:Name="MainFrame"/>
+    </Grid>
+</Window>

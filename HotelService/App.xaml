@@ -1,0 +1,17 @@
+﻿<Application x:Class="HotelService.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HotelService">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resourses/PanelButtonTemplate.xaml"/>
+                <ResourceDictionary Source="/Resourses/MenuButtonTemplate.xaml"/>
+                <ResourceDictionary Source="/Resourses/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Resourses/DefaultButtonTemplate.xaml"/>
+                <ResourceDictionary Source="/Resourses/ComboBoxTemplate.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
