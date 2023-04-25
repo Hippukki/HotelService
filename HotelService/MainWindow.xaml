@@ -18,29 +18,29 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical" Background="#FF2A2844" Grid.RowSpan="2">
-                <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <Label HorizontalContentAlignment="Center" Margin="0,15,0,0" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
                     <StackPanel Margin="20">
-                        <TextBlock Text="Hotel Chain Service" Foreground="#FF91DFEC" FontFamily="Humnst777 Blk BT" FontSize="25"/>
+                        <TextBlock Text="Hotel Service" Foreground="#FF91DFEC" FontFamily="Humnst777 Blk BT" FontSize="25"/>
                     </StackPanel>
                 </Label>
                 <Button Style="{DynamicResource PanelButtonTemplate}" Click="VisitorRegister">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                        <TextBlock Text="Зарегестрировать посетителя" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                        <TextBlock Text="Зарегестрировать" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
                 <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadApartments">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Список номеров отеля" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                        <TextBlock Text="Номера" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
                 <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadVisitors">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Список актуальных поситителей" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                        <TextBlock Text="Посетители" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
                 <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadServices">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Список сервисов отеля" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                        <TextBlock Text="Сервисы" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
                 <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadReviews">
@@ -53,7 +53,7 @@
                   ItemsSource="{Binding Hotels}"
                   DisplayMemberPath="Name"
                   Grid.ColumnSpan="1"
-                  Margin="10" 
+                  Margin="15" 
                   IsEditable="True" 
                   IsReadOnly="True" 
                   Text="Выбрать отель"/>

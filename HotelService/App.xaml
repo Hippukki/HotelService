@@ -12,6 +12,5 @@
                 <ResourceDictionary Source="/Resourses/ComboBoxTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

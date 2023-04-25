@@ -50,14 +50,17 @@ namespace HotelService
         {
             services.AddTransient(typeof(MainWindow));
             services.AddTransient(typeof(ManagmentWindow));
+
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
             services.AddDbContext<HotelContext>(
             dbContextOptions => dbContextOptions
                 .UseMySql(connectionString, serverVersion));
+
             services.AddScoped<HotelRepository>();
             services.AddScoped<ServiceRepository>();
             services.AddScoped<ApartmentRepository>();
+
             services.AddTransient(s => new MainWindowVM(s.GetRequiredService<HotelRepository>()));
             services.AddTransient(s => new CreateHotelVM(s.GetRequiredService<HotelRepository>()));
             services.AddTransient(s => new CreateServiceVM(s.GetRequiredService<ServiceRepository>()));
