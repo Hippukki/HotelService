@@ -1,6 +1,7 @@
 ﻿using HotelService.DataContext;
 using HotelService.DataContext.Repositories;
 using HotelService.ViewModels;
+using HotelService.ViewModels.ApartmentVM;
 using HotelService.ViewModels.HotelVM;
 using HotelService.ViewModels.ServiceVM;
 using HotelService.Views;
@@ -56,9 +57,12 @@ namespace HotelService
                 .UseMySql(connectionString, serverVersion));
             services.AddScoped<HotelRepository>();
             services.AddScoped<ServiceRepository>();
+            services.AddScoped<ApartmentRepository>();
             services.AddTransient(s => new MainWindowVM(s.GetRequiredService<HotelRepository>()));
             services.AddTransient(s => new CreateHotelVM(s.GetRequiredService<HotelRepository>()));
             services.AddTransient(s => new CreateServiceVM(s.GetRequiredService<ServiceRepository>()));
+            services.AddTransient(s => new CreateApartmentVM(s.GetRequiredService<ApartmentRepository>(), 
+                s.GetRequiredService<HotelRepository>()));
         }
     }
 }

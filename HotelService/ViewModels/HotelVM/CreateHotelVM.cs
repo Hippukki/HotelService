@@ -18,6 +18,7 @@ namespace HotelService.ViewModels.HotelVM
         private Hotel? _selectedHotel;
 
         public string? HotelName { get; set; }
+        public string? StageCount { get; set; }
         public string? City { get; set; }
         public string? Street { get; set; }
         public string? House { get; set; }
@@ -62,9 +63,10 @@ namespace HotelService.ViewModels.HotelVM
 
         public async void CreateHotelAsync(object obj)
         {
-            if (HotelName == null || City == null || Street == null || House == null)
+            if (HotelName == null || City == null || Street == null || House == null || StageCount == null)
             {
                 MessageBox.Show("Ошибка! Все поля должны быть заполнены.");
+                return;
             }
 
             try
@@ -74,6 +76,7 @@ namespace HotelService.ViewModels.HotelVM
                 {
                     Name = HotelName,
                     FullAddress = fullAddress,
+                    StageCount = Convert.ToInt32(StageCount),
                     CreateDateTime = DateTime.Now
                 };
                 await _hotelRepository.CreateHotelAsync(hotel);

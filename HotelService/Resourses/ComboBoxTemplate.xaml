@@ -83,7 +83,7 @@
             Template="{StaticResource ComboBoxTextBox}" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Center" 
-            Margin="3,3,23,3"
+            Margin="5,5,23,5"
             Focusable="True"
             Foreground="#FFF4F4F4"
             FontSize="18"

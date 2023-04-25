@@ -14,5 +14,7 @@ namespace HotelService.Models
         public ApartmentLevel Level { get; set; }
         public string? ShortDescription { get; set; }
         public decimal Price { get; set; }
+        public Hotel? Hotel { get; set; }
+        public int? HotelId { get; set; }
     }
 }

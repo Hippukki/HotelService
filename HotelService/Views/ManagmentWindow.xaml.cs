@@ -1,6 +1,8 @@
 ﻿using HotelService.DataContext.Repositories;
+using HotelService.ViewModels.ApartmentVM;
 using HotelService.ViewModels.HotelVM;
 using HotelService.ViewModels.ServiceVM;
+using HotelService.Views.ApartmentUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +26,15 @@ namespace HotelService.Views
     {
         private readonly CreateHotelVM _createHotelViewModel;
         private readonly CreateServiceVM _createServiceViewModel;
+        private readonly CreateApartmentVM _createApartmentVM;
 
-        public ManagmentWindow(CreateHotelVM createHotelViewModel, CreateServiceVM createServiceViewModel)
+        public ManagmentWindow(CreateHotelVM createHotelViewModel, 
+            CreateServiceVM createServiceViewModel, CreateApartmentVM createApartmentVM)
         {
             InitializeComponent();
             _createHotelViewModel = createHotelViewModel;
             _createServiceViewModel = createServiceViewModel;
+            _createApartmentVM = createApartmentVM;
         }
 
         private void OpenCreateHotelPage(object sender, RoutedEventArgs e)
@@ -44,7 +49,7 @@ namespace HotelService.Views
 
         private void OpenCreateApartmentPage(object sender, RoutedEventArgs e)
         {
-
+            ManagmentFrame.Navigate(new CreateApartmentsPage(_createApartmentVM));
         }
 
         private void OpenCreateVisitorPage(object sender, RoutedEventArgs e)

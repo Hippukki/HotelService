@@ -17,26 +17,28 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" Background="#FF04122C" Margin="10">
-            <StackPanel Orientation="Vertical">
-                <Label>
-                    <TextBlock Text="Название сервиса" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
-                </Label>
-                <TextBox Text="{Binding ServiceName}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Vertical" Background="#FF04122C" Margin="10">
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Название сервиса" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <TextBox Text="{Binding ServiceName}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Краткое описание" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <TextBox Text="{Binding Description}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Стоимость в сутки" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <TextBox Text="{Binding Price}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <Label>
-                    <TextBlock Text="Краткое описание" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
-                </Label>
-                <TextBox Text="{Binding Description}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <Label>
-                    <TextBlock Text="Стоимость в сутки" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
-                </Label>
-                <TextBox Text="{Binding Price}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
-            </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
         <DataGrid Background="#FF04122C" AutoGenerateColumns="False" CanUserAddRows="False"
                   ItemsSource="{Binding CreatedServices, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedService, UpdateSourceTrigger=PropertyChanged}"

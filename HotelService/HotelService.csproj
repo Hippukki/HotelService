@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ViewModels\ApartmentVM\0oiouoqo.vpp~" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
@@ -22,9 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\ApartmentVM\" />
     <Folder Include="ViewModels\VisitorVM\" />
-    <Folder Include="Views\ApartmentUI\" />
     <Folder Include="Views\VisitorUI\" />
   </ItemGroup>
 

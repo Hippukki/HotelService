@@ -45,6 +45,7 @@ namespace HotelService.ViewModels.ServiceVM
             if (ServiceName == null || Description == null || Price == null)
             {
                 MessageBox.Show("Ошибка! Все поля должны быть заполнены.");
+                return;
             }
 
             try

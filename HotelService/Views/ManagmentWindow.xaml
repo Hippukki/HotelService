@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelService.Views"
         mc:Ignorable="d"
-        Title="ManagmentWindow" Height="600" Width="1000">
+        Title="ManagmentWindow" Height="800" Width="1200" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2A2844">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Background="#FF04122C" Grid.ColumnSpan="5" Margin="10">
+        <StackPanel Orientation="Horizontal" Background="#FF04122C" Grid.ColumnSpan="5" Margin="10" HorizontalAlignment="Center">
             <Button Style="{DynamicResource DefaultButtonTemplate}" Margin="10" Click="OpenCreateHotelPage">
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                     <TextBlock Text="Добавить отель" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>

@@ -1,4 +1,5 @@
 ﻿using HotelService.ViewModels;
+using HotelService.ViewModels.ApartmentVM;
 using HotelService.ViewModels.HotelVM;
 using HotelService.ViewModels.ServiceVM;
 using HotelService.Views;
@@ -26,18 +27,21 @@ namespace HotelService
     {
         private readonly CreateHotelVM _createHotelVM;
         private readonly CreateServiceVM _createServiceVM;
+        private readonly CreateApartmentVM _createApartmentVM;
 
-        public MainWindow(CreateHotelVM createHotelVM, MainWindowVM mainWindowVM, CreateServiceVM createServiceVM)
+        public MainWindow(CreateHotelVM createHotelVM, MainWindowVM mainWindowVM, 
+            CreateServiceVM createServiceVM, CreateApartmentVM createApartmentVM)
         {
             InitializeComponent();
             _createHotelVM = createHotelVM;
             DataContext = mainWindowVM;
             _createServiceVM = createServiceVM;
+            _createApartmentVM = createApartmentVM;
         }
 
         private void OpenManagmentWindow(object sender, RoutedEventArgs e)
         {
-            new ManagmentWindow(_createHotelVM, _createServiceVM).ShowDialog();
+            new ManagmentWindow(_createHotelVM, _createServiceVM, _createApartmentVM).ShowDialog();
         }
 
         private void VisitorRegister(object sender, RoutedEventArgs e)
