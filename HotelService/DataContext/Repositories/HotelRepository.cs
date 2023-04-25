@@ -19,7 +19,7 @@ namespace HotelService.DataContext.Repositories
 
         public async Task<List<Hotel>> GetListHotelsAsync()
         {
-            return await _context.Hotels.Where(h => !h.IsDeleted).AsNoTracking().ToListAsync();
+            return await _context.Hotels.Where(h => !h.IsDeleted).ToListAsync();
         }
 
         public async Task<Hotel> GetHotelByIdAsync(int Id)

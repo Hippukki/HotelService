@@ -25,7 +25,7 @@ namespace HotelService.DataContext.Repositories
 
         public async Task<List<Service>> GetServisesAsync()
         {
-            return await _context.Services.Where(s => !s.IsDeleted).AsNoTracking().ToListAsync();
+            return await _context.Services.Where(s => !s.IsDeleted).ToListAsync();
         }
 
         public async Task<Service> GetServiceByIdAsync(int Id)

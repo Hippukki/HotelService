@@ -74,7 +74,7 @@ namespace HotelService.ViewModels.ApartmentVM
                     ShortDescription = Description,
                     Category = (ApartmentCategory)SelectedCategory,
                     Level = (ApartmentLevel)SelectedLevel,
-                    HotelId = SelectedHotel.Id,
+                    Hotel = SelectedHotel,
                     CreateDateTime = DateTime.Now
                 };
                 await _apartmentRepository.CreateApartmentAsync(apartment);

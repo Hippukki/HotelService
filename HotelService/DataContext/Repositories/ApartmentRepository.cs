@@ -24,7 +24,7 @@ namespace HotelService.DataContext.Repositories
 
         public async Task<List<Apartment>> GetApartmentsByHotelIdAsync(int hotelId)
         {
-            return await _context.Apartments.Where(a => a.HotelId == hotelId && !a.IsDeleted).ToListAsync();
+            return await _context.Apartments.Include(a => a.Hotel).Where(a => a.Hotel.Id == hotelId && !a.IsDeleted).ToListAsync();
         }
 
         public async Task CreateApartmentAsync(Apartment apartment)
