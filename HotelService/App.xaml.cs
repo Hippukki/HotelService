@@ -4,6 +4,7 @@ using HotelService.ViewModels;
 using HotelService.ViewModels.ApartmentVM;
 using HotelService.ViewModels.HotelVM;
 using HotelService.ViewModels.ServiceVM;
+using HotelService.ViewModels.VisitorVM;
 using HotelService.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -60,12 +61,22 @@ namespace HotelService
             services.AddScoped<HotelRepository>();
             services.AddScoped<ServiceRepository>();
             services.AddScoped<ApartmentRepository>();
+            services.AddScoped<VisitorRepository>();
+            services.AddScoped<PassportRepository>();
+            services.AddScoped<ResidenceOrderRepository>();
+            services.AddScoped<ReviewRepository>();
 
-            services.AddTransient(s => new MainWindowVM(s.GetRequiredService<HotelRepository>()));
+            services.AddTransient(s => new MainWindowVM(s.GetRequiredService<HotelRepository>(),
+                s.GetRequiredService<ApartmentRepository>(), s.GetRequiredService<ServiceRepository>(), 
+                s.GetRequiredService<VisitorRepository>(), s.GetRequiredService<ReviewRepository>(),
+                s.GetRequiredService<PassportRepository>(), s.GetRequiredService<ResidenceOrderRepository>()));
             services.AddTransient(s => new CreateHotelVM(s.GetRequiredService<HotelRepository>()));
-            services.AddTransient(s => new CreateServiceVM(s.GetRequiredService<ServiceRepository>()));
-            services.AddTransient(s => new CreateApartmentVM(s.GetRequiredService<ApartmentRepository>(), 
+            services.AddTransient(s => new CreateApartmentVM(s.GetRequiredService<ApartmentRepository>(),
                 s.GetRequiredService<HotelRepository>()));
+            services.AddTransient(s => new CreateServiceVM(s.GetRequiredService<ServiceRepository>(),
+                s.GetRequiredService<HotelRepository>()));
+            services.AddTransient(s => new CreateVisitorVM(s.GetRequiredService<VisitorRepository>(),
+                s.GetRequiredService<PassportRepository>()));
         }
     }
 }

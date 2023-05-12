@@ -23,9 +23,14 @@ namespace HotelService.DataContext.Repositories
             _context.SaveChanges();
         }
 
+        public async Task UpdateServiceAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<List<Service>> GetServisesAsync()
         {
-            return await _context.Services.Where(s => !s.IsDeleted).ToListAsync();
+            return await _context.Services.Include(s => s.Hotels).Where(s => !s.IsDeleted).ToListAsync();
         }
 
         public async Task<Service> GetServiceByIdAsync(int Id)

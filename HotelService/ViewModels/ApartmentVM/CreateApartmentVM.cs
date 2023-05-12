@@ -43,8 +43,8 @@ namespace HotelService.ViewModels.ApartmentVM
 
         public CreateApartmentVM(ApartmentRepository apartmentRepository, HotelRepository hotelRepository)
         {
-            _apartmentRepository = apartmentRepository;
             _hotelRepository = hotelRepository;
+            _apartmentRepository = apartmentRepository;
             CreatedApartments = new();
             FillPropertiesAsync();
         }
@@ -122,7 +122,7 @@ namespace HotelService.ViewModels.ApartmentVM
                 Levels.Add((int)level, level.GetType()
                     .GetMember(level.ToString()).First().GetCustomAttribute<DisplayAttribute>().GetName());
             }
-
+            await Task.Delay(2000);
             Hotels = new(await _hotelRepository.GetListHotelsAsync());
             while (true)
             {

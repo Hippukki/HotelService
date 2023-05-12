@@ -25,9 +25,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\VisitorVM\" />
-    <Folder Include="Views\VisitorUI\" />
-  </ItemGroup>
-
 </Project>

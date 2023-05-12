@@ -11,6 +11,7 @@ namespace HotelService.Models
         public string? ServiceName { get; set; }
         public string? Description { get; set; }
         public decimal? Price { get; set; }
+        public List<Hotel>? Hotels { get; set; }
         public List<ResidenceOrder>? ResidenceOrders { get; set; }
     }
 }

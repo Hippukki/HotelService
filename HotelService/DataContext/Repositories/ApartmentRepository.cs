@@ -33,9 +33,19 @@ namespace HotelService.DataContext.Repositories
             _context.SaveChanges();
         }
 
+        public async Task UpdateApartmentAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Apartment> GetApartmentByIdAsync(int Id)
         {
             return await _context.Apartments.FirstOrDefaultAsync(a => a.Id == Id);
+        }
+
+        public async Task<List<Apartment>> GetApartmentsByIdAsync(int Id)
+        {
+            return await _context.Apartments.Where(a => a.Id == Id).ToListAsync();
         }
 
         public async Task<bool> DeleteApartmentAsync(int Id)

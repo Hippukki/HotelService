@@ -1,0 +1,56 @@
+﻿<Window x:Class="HotelService.Views.RegisterUI.CreateOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelService.Views.RegisterUI"
+        mc:Ignorable="d"
+        Title="CreateOrderWindow" Height="450" Width="800">
+    <Grid Background="#FF04122C">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Vertical" Background="#FF04122C" Margin="10">
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Идентификатор посетителя" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <TextBox Text="{Binding VisitorId}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Идентификаторы номеров (через запятую)" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <TextBox Text="{Binding ApartmentsId}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Идентификаторы сервисов (через запятую)" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <TextBox Text="{Binding ServicesId}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Дата заселения" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <DatePicker SelectedDate="{Binding SettleDate}" SelectedDateFormat="Short" FontSize="20" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>
+                        <TextBlock Text="Дата выселения" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <DatePicker SelectedDate="{Binding EvectionDate}" SelectedDateFormat="Short" FontSize="20" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button Style="{DynamicResource DefaultButtonTemplate}" Margin="10" Grid.Column="1" Grid.Row="1"
+                Command="{Binding Save}">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <TextBlock Text="Сохранить изменения" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

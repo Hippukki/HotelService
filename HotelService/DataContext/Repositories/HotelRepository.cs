@@ -33,6 +33,11 @@ namespace HotelService.DataContext.Repositories
             _context.SaveChanges();
         }
 
+        public async Task UpdateHotelAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<bool> DeleteHotelAsync(int Id)
         {
             var hotel = await GetHotelByIdAsync(Id);

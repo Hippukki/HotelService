@@ -11,6 +11,7 @@ namespace HotelService.Models
         public string? Name { get; set; }
         public string? FullAddress { get; set; }
         public int? StageCount { get; set; }
+        public List<Service>? Services { get; set; }
         public List<Review>? Reviews { get; set; }
     }
 }

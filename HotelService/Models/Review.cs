@@ -11,7 +11,6 @@ namespace HotelService.Models
         public string? VisitorFullName { get; set; }
         public string? HotelName { get; set; }
         public string? ReviewBody { get; set; }
-        public Visitor? Visitor { get; set; }
         public Hotel? Hotel { get; set; }
 
     }

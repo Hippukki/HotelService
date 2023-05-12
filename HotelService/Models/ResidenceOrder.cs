@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HotelService.Models
 {
-    public class ResidenceOrder
+    public class ResidenceOrder : BaseModel
     {
-        public Guid Id { get; set; }
+        public Guid GuidId { get; set; }
         public Visitor? Visitor { get; set; }
         public Hotel? Hotel { get; set; }
         public List<Apartment>? Apartments { get; set; }

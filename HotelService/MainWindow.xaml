@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelService"
         mc:Ignorable="d"
-        Title="Hotel Service" MinHeight="800" MinWidth="1200" WindowStartupLocation="CenterScreen">
+        Title="Hotel Service" MinHeight="800" MinWidth="1400" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF04122C">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -23,34 +23,40 @@
                         <TextBlock Text="Hotel Service" Foreground="#FF91DFEC" FontFamily="Humnst777 Blk BT" FontSize="25"/>
                     </StackPanel>
                 </Label>
-                <Button Style="{DynamicResource PanelButtonTemplate}" Click="VisitorRegister">
+                <Button Style="{DynamicResource PanelButtonTemplate}" Command="{Binding OpenRegisterPage}">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                        <TextBlock Text="Зарегестрировать" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                        <TextBlock Text="Зарегистрировать" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
-                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadApartments">
+                <Button Style="{DynamicResource PanelButtonTemplate}" Command="{Binding OpenApartmentsPage}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Номера" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
-                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadVisitors">
+                <Button Style="{DynamicResource PanelButtonTemplate}" Command="{Binding OpenVisitorsPage}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Посетители" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
-                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadServices">
+                <Button Style="{DynamicResource PanelButtonTemplate}" Command="{Binding OpenServicesPage}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Сервисы" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
                     </StackPanel>
                 </Button>
-                <Button Style="{DynamicResource PanelButtonTemplate}" Click="LoadReviews">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Отзывы" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
-                    </StackPanel>
-                </Button>
+            <Button Style="{DynamicResource PanelButtonTemplate}" Command="{Binding OpenReviewsPage}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Отзывы" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Button Style="{DynamicResource DefaultButtonTemplate}" Margin="15" Command="{Binding OpenHotelsPage}" Grid.Row="1" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Отели" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontSize="20"/>
             </StackPanel>
+        </Button>
         <ComboBox Grid.Column="1"
                   ItemsSource="{Binding Hotels}"
+                  SelectedItem="{Binding SelectedHotel}"
                   DisplayMemberPath="Name"
                   Grid.ColumnSpan="1"
                   Margin="15" 
@@ -63,7 +69,11 @@
                 FontSize="18"
                 Click="OpenManagmentWindow"/>
             <Frame
-            NavigationUIVisibility="Hidden"
-            x:Name="MainFrame"/>
+                NavigationUIVisibility="Hidden"
+                x:Name="MainFrame"
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="4"
+                Content="{Binding CurrentPage}"/>
     </Grid>
 </Window>

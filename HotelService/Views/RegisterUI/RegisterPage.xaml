@@ -1,0 +1,87 @@
+﻿<Page x:Class="HotelService.Views.RegisterUI.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelService.Views.RegisterUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegisterPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Column="2"
+                  Margin="10"
+                  ItemsSource="{Binding SearchTypes}"
+                  SelectedItem="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged}" IsEditable="True" IsReadOnly="True" Text="Параметр"/>
+        <Label Grid.Row="1" Content="Брони" Foreground="White"/>
+        <DataGrid Background="#FF04122C" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2" Grid.RowSpan="3"
+                  ItemsSource="{Binding Orders, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedOrder, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.ColumnSpan="2" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Visitor.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Visitor.LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding Visitor.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding TotalSumm, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Время заселения" Binding="{Binding SettleDate, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Время выселения" Binding="{Binding Evection, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Создать" Command="{Binding CreateOrder}"/>
+                    <MenuItem Header="Редактировать" Command="{Binding EditOrder}"/>
+                    <MenuItem Header="Удалить" Command="{Binding DeleteOrder}"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <TextBox Text="{Binding SearchData}" 
+                 Style="{DynamicResource TextBoxStyle}"
+                 Padding="5"
+                 Grid.ColumnSpan="2"/>
+        <Button Content="Поиск"
+                Style="{DynamicResource DefaultButtonTemplate}"
+                Margin="10"
+                FontSize="17"
+                Grid.Column="3"
+                Command="{Binding Search}"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="Апартаменты" Foreground="White"/>
+        <DataGrid Background="#FF04122C" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2" Grid.Column="2"
+                  ItemsSource="{Binding Apartments, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedApartment, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.ColumnSpan="2" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Этаж" Binding="{Binding Stage, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Number, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Category, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Вид" Binding="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Стоимость в сутки" Binding="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Row="3" Grid.Column="2" Content="Сервисы" Foreground="White"/>
+        <DataGrid Background="#FF04122C" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="4" Grid.Column="2"
+                  ItemsSource="{Binding Services,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedService, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.ColumnSpan="2" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Название сервиса" Binding="{Binding ServiceName, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Стоимость в сутки" Binding="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -2,7 +2,9 @@
 using HotelService.ViewModels.ApartmentVM;
 using HotelService.ViewModels.HotelVM;
 using HotelService.ViewModels.ServiceVM;
+using HotelService.ViewModels.VisitorVM;
 using HotelService.Views.ApartmentUI;
+using HotelService.Views.VisitorUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,14 +29,16 @@ namespace HotelService.Views
         private readonly CreateHotelVM _createHotelViewModel;
         private readonly CreateServiceVM _createServiceViewModel;
         private readonly CreateApartmentVM _createApartmentVM;
+        private readonly CreateVisitorVM _createVisitorVM;
 
         public ManagmentWindow(CreateHotelVM createHotelViewModel, 
-            CreateServiceVM createServiceViewModel, CreateApartmentVM createApartmentVM)
+            CreateServiceVM createServiceViewModel, CreateApartmentVM createApartmentVM, CreateVisitorVM createVisitorVM)
         {
             InitializeComponent();
             _createHotelViewModel = createHotelViewModel;
             _createServiceViewModel = createServiceViewModel;
             _createApartmentVM = createApartmentVM;
+            _createVisitorVM = createVisitorVM;
         }
 
         private void OpenCreateHotelPage(object sender, RoutedEventArgs e)
@@ -54,7 +58,7 @@ namespace HotelService.Views
 
         private void OpenCreateVisitorPage(object sender, RoutedEventArgs e)
         {
-
+            ManagmentFrame.Navigate(new CreateVisitorPage(_createVisitorVM));
         }
     }
 }

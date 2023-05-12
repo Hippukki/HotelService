@@ -21,6 +21,20 @@
             <StackPanel Orientation="Vertical" Background="#FF04122C" Margin="10">
                 <StackPanel Orientation="Vertical">
                     <Label>
+                        <TextBlock Text="Отель" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
+                    </Label>
+                    <ComboBox Grid.Column="1"
+                  ItemsSource="{Binding Hotels}"
+                  DisplayMemberPath="Name"
+                  SelectedItem="{Binding SelectedHotel}"
+                  Grid.ColumnSpan="1"
+                  Margin="10" 
+                  IsEditable="True" 
+                  IsReadOnly="True"
+                  Text="Выбрать отель"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>
                         <TextBlock Text="Название сервиса" VerticalAlignment="Center" Foreground="White" Margin="10,0,20,0" FontFamily="Times New Roman" FontSize="20"/>
                     </Label>
                     <TextBox Text="{Binding ServiceName}" Style="{DynamicResource TextBoxStyle}" Margin="15" Padding="5" Grid.Column="2" VerticalAlignment="Bottom"/>
